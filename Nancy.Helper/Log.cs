@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 
@@ -96,7 +95,7 @@ namespace Nancy.Helper
 			_isRunning = true;
 			var logDirectory = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "logs");
 			if (!Directory.Exists(logDirectory)) Directory.CreateDirectory(logDirectory);
-			_logFileName = Path.Combine(logDirectory, string.Concat(DateTime.Now.ToString("yyy-MM-dd "), ".log"));
+			_logFileName = Path.Combine(logDirectory, string.Concat(DateTime.Now.ToString("yyy-MM-dd"), ".log"));
 			_thread = new Thread(LogProcessor);
 			_thread.IsBackground = true;
 			_thread.Start();
